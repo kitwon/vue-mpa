@@ -6,10 +6,8 @@
 </template>
 
 <script>
-{{#unless router}}
 import Hello from '@/components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
-{{/unless}}
 export default {
   name: 'app',
   components: {

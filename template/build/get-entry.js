@@ -10,7 +10,7 @@ function getEntry(filePath) {
   glob.sync(filePath).forEach(entry => {
     basename = path.basename(entry, path.extname(entry))
     tmp = entry.split('/').splice(-3)
-    pathname = path.join(tmp.splice(0, 1), '/', basename)
+    pathname = path.join(tmp.splice(0, 1).join(), '/', basename)
     entries[pathname] = entry
   })
 
