@@ -1,9 +1,3 @@
-node_modules
-*.log
-.vscode
-.ide
-.git
-.svn
 .*.swp
 ._*
 .DS_Store

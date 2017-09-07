@@ -1,3 +1,4 @@
 #!/bin/bash
 
-vue init kitwon/vue-mpa $1
+basepath=$(pwd)
+vue init $basepath $1

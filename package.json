@@ -6,7 +6,7 @@
   "bin": {
     "vue-mpa-init": "bin/vue-mpa-init"
   },
-  "devDependencies": {
+  "dependencies": {
     "vue-cli": "^2.8.1"
   }
 }
