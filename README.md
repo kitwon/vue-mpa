@@ -10,15 +10,6 @@ use it with `vue-cli`
 vue init kitwon/vue-mpa your-project-name
 ```
 
-use it with `npm`
-```bash
-npm install vue-mpa -g
-```
-and
-```bash
-vue-mpa-init your-project-name
-```
-
 # What's different
 1. generate multiple page aplication not single page, has all vue-cli/webpack functions
 2. unit test use [jest](http://facebook.github.io/jest/) to instead mocha
