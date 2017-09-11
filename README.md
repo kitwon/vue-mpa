@@ -10,7 +10,7 @@ $ npm install vue-cli -g
 $ vue init kitwon/vue-mpa your-project-name
 ```
 
-or install use global command
+or use global command
 ```bash
 $ npm install vue-mpa -g
 $ vue-mpa-init your-project-name
