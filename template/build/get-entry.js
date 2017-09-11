@@ -3,6 +3,8 @@ var path = require('path')
 var config  = require('../config/index.js')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const env = process.env.NODE_ENV
+
 function getEntry(filePath) {
   var entries = {},
     basename, pathname, tmp
@@ -33,7 +35,7 @@ function getHtmlPlugin(entries, isPack) {
       conf.hash = true;
     }
 
-    if (process.env.NODE_ENV === 'production') {
+    if (env === 'production') {
       conf.minify = {
         removeComments: true,
         collapseWhitespace: true,

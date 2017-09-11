@@ -38,10 +38,6 @@
   <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
   <% } %>
 
-  <% if (htmlWebpackPlugin.options.devServer) { %>
-  <script src="<%= htmlWebpackPlugin.options.devServer%>/webpack-dev-server.js"></script>
-  <% } %>
-
   <% for (var vendor in htmlWebpackPlugin.options.vendors) { %>
   <script src="<%= htmlWebpackPlugin.options.vendors[vendor] %>"></script>
   <% } %>

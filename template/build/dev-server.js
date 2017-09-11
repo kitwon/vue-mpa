@@ -14,6 +14,9 @@ var webpackConfig = {{#if_or unit e2e}}(process.env.NODE_ENV === 'testing' || pr
   ? require('./webpack.prod.conf')
   : {{/if_or}}require('./webpack.dev.conf')
 
+var resolve = require('./get-entry').resolve
+var entries = require('./get-entry').getEntry(resolve('src/modules/*/*.js'))
+
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
 // automatically open browser, if not set will be false
@@ -66,6 +69,25 @@ var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsS
 app.use(staticPath, express.static('./static'))
 
 var uri = 'http://localhost:' + port
+// set application route
+Object.keys(entries).forEach((context, index) => {
+  let route = /\/?(\w+)/.exec(context)[0]
+  const filepath = path.join(compiler.outputPath, `${context}.html`)
+
+  app.get(`/${route}`, (req, res, next) => {
+    compiler.outputFileSystem.readFile(filepath, (err, result) => {
+      if (err) {
+        console.log(err)
+        next(err)
+      }
+
+      res.set('content-type', 'text/html')
+      res.send(result)
+    })
+  })
+
+  uri = 'http://localhost:' + port + '/' + (context === 'index' ? context : Object.keys(entries)[0])
+})
 
 var _resolve
 var readyPromise = new Promise(resolve => {
