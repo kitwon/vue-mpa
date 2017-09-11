@@ -4,6 +4,7 @@
 
 > no matter why you need multiple page, use this to start your project and stay productive
 
+
 # Useage
 use it with `vue-cli` (suggest)
 ```bash
@@ -16,6 +17,7 @@ or install use global command
 $ npm install vue-mpa -g
 $ vue-mpa-init your-project-name
 ```
+
 
 # What's different
 1. generate multiple page aplication not single page, has all vue-cli/webpack functions
