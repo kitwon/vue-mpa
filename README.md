@@ -2,8 +2,6 @@
 
 > A Vue MPA boilerplate extend extend from [vuejs-template/webpack](https://github.com/vuejs-templates/webpack)
 
-> no matter why you need multiple page, use this to start your project and stay productive
-
 
 # Useage
 use it with `vue-cli` (suggest)
@@ -22,3 +20,21 @@ $ vue-mpa-init your-project-name
 # What's different
 1. generate multiple page aplication not single page, has all vue-cli/webpack functions
 2. unit test use [jest](http://facebook.github.io/jest/) to instead mocha
+
+# Notice
+1. due to use the multiple entry, so the middle ware `connect-history-api-fallback` will break.
+2. if you want to set dev server route, you can use the [express router](http://expressjs.com/en/guide/routing.html), you can get the assets file in memory fs, such as
+```javascript
+app.get(`/`, (req, res, next) => {
+  // filepath on the same path as dev file 
+  compiler.outputFileSystem.readFile(filepath, (err, result) => {
+    if (err) {
+      console.log(err)
+      next(err)
+    }
+
+    res.set('content-type', 'text/html')
+    res.send(result)
+  })
+})
+```
