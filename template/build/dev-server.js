@@ -68,25 +68,12 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
-var uri = 'http://localhost:' + port
-// set application route
-Object.keys(entries).forEach((context, index) => {
-  let route = /\/?(\w+)/.exec(context)[0]
-  const filepath = path.join(compiler.outputPath, `${context}.html`)
+// set default page
+var uri
+Object.keys(entries).forEach((context) => {
+  uri = 'http://localhost:' + port + '/' + context + '.html'
 
-  app.get(`/${route}`, (req, res, next) => {
-    compiler.outputFileSystem.readFile(filepath, (err, result) => {
-      if (err) {
-        console.log(err)
-        next(err)
-      }
-
-      res.set('content-type', 'text/html')
-      res.send(result)
-    })
-  })
-
-  uri = 'http://localhost:' + port + '/' + (context === 'index' ? context : Object.keys(entries)[0])
+  if (~context.indexOf('index')) return
 })
 
 var _resolve
