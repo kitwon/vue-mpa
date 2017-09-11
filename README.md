@@ -23,7 +23,7 @@ $ vue-mpa-init your-project-name
 
 # Notice
 1. due to use the multiple entry, so the middle ware `connect-history-api-fallback` will break.
-2. if you want to set dev server route, you can use the [express router](http://expressjs.com/en/guide/routing.html), you can get the assets file in memory fs, such as
+2. if you want to set dev server route, use the [express router](http://expressjs.com/en/guide/routing.html), you can get the assets file in memory fs, such as
 ```javascript
 app.get(`/`, (req, res, next) => {
   // filepath on the same path as dev file 
