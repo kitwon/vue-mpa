@@ -1,6 +1,6 @@
 {
   "name": "vue-mpa",
-  "version": "0.1.2",
+  "version": "0.2.1",
   "license": "MIT",
   "description": "A Vue MPA boilerplate extend extend from vuejs-template/webpack",
   "bin": {

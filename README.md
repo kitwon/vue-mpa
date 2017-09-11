@@ -5,9 +5,16 @@
 > no matter why you need multiple page, use this to start your project and stay productive
 
 # Useage
-use it with `vue-cli`
+use it with `vue-cli` (suggest)
 ```bash
-vue init kitwon/vue-mpa your-project-name
+$ npm install vue-cli -g
+$ vue init kitwon/vue-mpa your-project-name
+```
+
+or install use global command
+```bash
+$ npm install vue-mpa -g
+$ vue-mpa-init your-project-name
 ```
 
 # What's different

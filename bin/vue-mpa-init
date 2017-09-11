@@ -1,3 +1,117 @@
-#!/bin/bash
+#!/usr/bin/env node
 
-vue init kitwon/vue-mpa $1
+var download = require('download-git-repo')
+var program = require('commander')
+var exists = require('fs').existsSync
+var path = require('path')
+var ora = require('ora')
+var home = require('user-home')
+var tildify = require('tildify')
+var chalk = require('chalk')
+var inquirer = require('inquirer')
+var rm = require('rimraf').sync
+var logger = require('vue-cli/lib/logger')
+var generate = require('vue-cli/lib/generate')
+var checkVersion = require('vue-cli/lib/check-version')
+var warnings = require('vue-cli/lib/warnings')
+var localPath = require('vue-cli/lib/local-path')
+
+var isLocalPath = localPath.isLocalPath
+var getTemplatePath = localPath.getTemplatePath
+
+/**
+ * Usage.
+ */
+
+program
+  .usage('project-name]')
+  .option('-c, --clone', 'use git clone')
+  .parse(process.argv)
+/**
+ * Help.
+ */
+
+program.on('--help', function () {
+  console.log('  Examples:')
+  console.log()
+  console.log(chalk.gray('    # create a new project with an official template'))
+  console.log('    $ vue init webpack my-project')
+  console.log()
+  console.log(chalk.gray('    # create a new project straight from a github template'))
+  console.log('    $ vue init username/repo my-project')
+  console.log()
+})
+
+/**
+ * Settings.
+ */
+
+var rawName = program.args[0]
+var inPlace = !rawName || rawName === '.'
+var name = inPlace ? path.relative('../', process.cwd()) : rawName
+var to = path.resolve(rawName || '.')
+var clone = program.clone || false
+
+var tmp = path.join(home, '.vue-templates', 'kitwon-vue-mpa')
+
+/**
+ * Padding.
+ */
+
+console.log()
+process.on('exit', function () {
+  console.log()
+})
+
+if (exists(to)) {
+  inquirer.prompt([{
+    type: 'confirm',
+    message: inPlace
+      ? 'Generate project in current directory?'
+      : 'Target directory exists. Continue?',
+    name: 'ok'
+  }], function (answers) {
+    if (answers.ok) {
+      run()
+    }
+  })
+} else {
+  run()
+}
+
+/**
+ * Check, download and generate the project.
+ */
+
+function run () {
+  checkVersion(function () {
+    if (!program.offline) {
+      // use official templates
+      downloadAndGenerate('kitwon/vue-mpa')
+    } else {
+      downloadAndGenerate(tmp)
+    }
+  })
+}
+
+/**
+ * Download a generate from a template repo.
+ *
+ * @param {String} template
+ */
+
+function downloadAndGenerate (template) {
+  var spinner = ora('downloading template')
+  spinner.start()
+  // Remove if local template exists
+  if (exists(tmp)) rm(tmp)
+  download(template, tmp, { clone: clone }, function (err) {
+    spinner.stop()
+    if (err) logger.fatal('Failed to download repo ' + template + ': ' + err.message.trim())
+    generate(name, tmp, to, function (err) {
+      if (err) logger.fatal(err)
+      console.log()
+      logger.success('Generated "%s".', name)
+    })
+  })
+}
