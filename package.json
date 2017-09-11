@@ -1,7 +1,13 @@
 {
   "name": "vue-mpa",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "license": "MIT",
+  "author": {
+    "name": "kit",
+    "email": "kitwang.c@gmail.com",
+    "url": "kiit.wang"
+  },
+  "repository": "https://github.com/kitwon/vue-mpa",
   "description": "A Vue MPA boilerplate extend extend from vuejs-template/webpack",
   "bin": {
     "vue-mpa-init": "bin/vue-mpa-init"
