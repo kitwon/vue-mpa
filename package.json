@@ -1,6 +1,6 @@
 {
   "name": "vue-mpa",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "license": "MIT",
   "author": {
     "name": "kit",
@@ -9,6 +9,12 @@
   },
   "repository": "https://github.com/kitwon/vue-mpa",
   "description": "A Vue MPA boilerplate extend extend from vuejs-template/webpack",
+  "keywords": [
+    "vue",
+    "mpa",
+    "webpack2",
+    "template"
+  ],
   "bin": {
     "vue-mpa-init": "bin/vue-mpa-init"
   },

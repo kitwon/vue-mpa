@@ -20,6 +20,8 @@ function getEntry(filePath) {
 }
 
 function getHtmlPlugin(entries, isPack) {
+  if (typeof entries === 'string') entries = { index: entries }
+
   var tempArr = [];
   for (var filepath in entries) {
     var conf = {
