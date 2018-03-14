@@ -1,12 +1,12 @@
-var glob = require('glob')
-var path = require('path')
-var config  = require('../config/index.js')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+const glob = require('glob')
+const path = require('path')
+const config  = require('../config/index.js')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const env = process.env.NODE_ENV
 
 function getEntry(filePath) {
-  var entries = {},
+  let entries = {},
     basename, pathname, tmp
 
   glob.sync(filePath).forEach(entry => {
@@ -22,9 +22,9 @@ function getEntry(filePath) {
 function getHtmlPlugin(entries, isPack) {
   if (typeof entries === 'string') entries = { index: entries }
 
-  var tempArr = [];
+  let tempArr = [];
   for (var filepath in entries) {
-    var conf = {
+    let conf = {
       filename: `${filepath}.html`,
       template: resolve('template.html'),
       inject: false,

@@ -1,24 +1,21 @@
 {
   "name": "vue-mpa",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "license": "MIT",
   "author": {
     "name": "kit",
     "email": "kitwang.c@gmail.com",
-    "url": "kiit.wang"
+    "url": "kiit.wang/blog/1"
   },
   "repository": "https://github.com/kitwon/vue-mpa",
   "description": "A Vue MPA boilerplate extend extend from vuejs-template/webpack",
   "keywords": [
     "vue",
     "mpa",
-    "webpack2",
+    "webpack3",
     "template"
   ],
-  "bin": {
-    "vue-mpa-init": "bin/vue-mpa-init"
-  },
   "dependencies": {
-    "vue-cli": "^2.8.1"
+    "vue-cli": "^2.9.1"
   }
 }

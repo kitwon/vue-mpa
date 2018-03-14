@@ -11,15 +11,15 @@
 
 <script>
 {{#unless router}}
-import Index from '@/components/Index'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Index from '@/components/Index'
 
 {{/unless}}
 export default {
-  name: 'app'{{#router}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{else}},
+  name: 'app'{{#router}}{{else}},
   components: {
-    Index{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{/router}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    Index
+  }{{/router}}
+}
 </script>
 
 <style>
