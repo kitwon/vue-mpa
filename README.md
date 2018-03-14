@@ -11,6 +11,8 @@ $ npm install vue-cli -g
 $ vue init kitwon/vue-mpa your-project-name
 ```
 
+When installed template, run `cd your-project-name && npm run dev`, and visit **localhost:8080/modules/index.html**.
+
 ## What's different
 
 1. generate multiple page aplication not single page, has all vue-cli/webpack functions
@@ -20,7 +22,7 @@ $ vue init kitwon/vue-mpa your-project-name
 
 It's easy. Change the entry object in `build/webpack.base.conf.js` to your boostrap file path.
 
-## Notice
+<!-- ## Notice
 
 1. due to use the multiple entry, so the middle ware `connect-history-api-fallback` will break.
 2. if you want to set dev server route, use the [express router](http://expressjs.com/en/guide/routing.html), you can get the assets file in memory fs, such as
@@ -38,4 +40,4 @@ app.get("/", (req, res, next) => {
     res.send(result);
   });
 });
-```
+``` -->
