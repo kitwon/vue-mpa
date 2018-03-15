@@ -1,22 +1,22 @@
 # vue-mpa-boilerplate
 
-> A Vue MPA boilerplate extend extend from [vuejs-template/webpack](https://github.com/vuejs-templates/webpack)
+> A Vue 2.0 MPA boilerplate expand on [vuejs-template/webpack](https://github.com/vuejs-templates/webpack)
+
+## Documentation
+
+Except the modules entries, this template is the same as [vuejs-template/webpack](https://github.com/vuejs-templates/webpack), more features to view [webpack template doc](http://vuejs-templates.github.io/webpack/).
 
 ## Useage
 
-use it with `vue-cli` (suggest)
-
 ```bash
-$npm install vue-cli -g
-$vue init kitwon/vue-mpa your-project-name
+$ npm install vue-cli -g
+$ vue init kitwon/vue-mpa your-project-name
+$ cd your-project-name
+$ npm install
+$ npm run dev
 ```
 
-**NOTICE**, When installed template, run `cd your-project-name && npm run dev`, and visit **localhost:8080/modules/index.html**.
-
-## What's different
-
-1. generate multiple page aplication not single page, has all vue-cli/webpack functions
-2. unit test use [jest](http://facebook.github.io/jest/) to instead mocha
+**NOTICE**, after run the `npm run dev` command, visit **http://localhost:8080/modules/index.html** to develop.
 
 ## switch to single page application
 
