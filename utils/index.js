@@ -73,8 +73,7 @@ To get started:
   ${yellow(
     `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}${installMsg(
       data
-    )}${lintMsg(data)}npm run dev,
-    and visit localhost:8080/modules/index.html`
+    )}${lintMsg(data)}npm run dev \n and visit localhost:8080/modules/index.html`
   )}
   
 Documentation can be found at https://vuejs-templates.github.io/webpack

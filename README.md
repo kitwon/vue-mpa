@@ -7,11 +7,11 @@
 use it with `vue-cli` (suggest)
 
 ```bash
-$ npm install vue-cli -g
-$ vue init kitwon/vue-mpa your-project-name
+$npm install vue-cli -g
+$vue init kitwon/vue-mpa your-project-name
 ```
 
-When installed template, run `cd your-project-name && npm run dev`, and visit **localhost:8080/modules/index.html**.
+**NOTICE**, When installed template, run `cd your-project-name && npm run dev`, and visit **localhost:8080/modules/index.html**.
 
 ## What's different
 
@@ -20,24 +20,4 @@ When installed template, run `cd your-project-name && npm run dev`, and visit **
 
 ## switch to single page application
 
-It's easy. Change the entry object in `build/webpack.base.conf.js` to your boostrap file path.
-
-<!-- ## Notice
-
-1. due to use the multiple entry, so the middle ware `connect-history-api-fallback` will break.
-2. if you want to set dev server route, use the [express router](http://expressjs.com/en/guide/routing.html), you can get the assets file in memory fs, such as
-
-```javascript
-app.get("/", (req, res, next) => {
-  // filepath on the same path as dev file
-  compiler.outputFileSystem.readFile(filepath, (err, result) => {
-    if (err) {
-      console.log(err);
-      next(err);
-    }
-
-    res.set("content-type", "text/html");
-    res.send(result);
-  });
-});
-``` -->
+It's easy. Change the entry object in `build/webpack.base.conf.js` to your boostrap file path. But the more efficient way is use `vue init webpack your-project-name` command 😅
