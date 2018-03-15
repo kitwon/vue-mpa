@@ -16,7 +16,7 @@ $ npm install
 $ npm run dev
 ```
 
-**NOTICE**, after run the `npm run dev` command, visit **http://localhost:8080/modules/index.html** to develop.
+⚠️ after run the `npm run dev` command, visit **http://localhost:8080/modules/index.html** to develop.
 
 ## switch to single page application
 
