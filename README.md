@@ -20,4 +20,15 @@ $ npm run dev
 
 ## switch to single page application
 
-It's easy. Change the entry object in `build/webpack.base.conf.js` to your boostrap file path. But the more efficient way is use `vue init webpack your-project-name` command 😅
+It's easy. Change the entry object in `build/webpack.base.conf.js`
+
+```javascript
+// ...
+//const entries = require('./get-entry').getEntry(resolve('src/modules/*/*.js'))
+const entries = {
+    index: '' // your entry file path
+}
+// ...
+```
+
+But the more efficient way is use `vue init webpack your-project-name` command 😅
