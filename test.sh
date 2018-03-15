@@ -1,6 +1,6 @@
 set -e
 
-yes | node ./bin/vue-mpa-init test
+yes | vue init kitwon/vue-mpa test
 
 cd test
 yarn install
